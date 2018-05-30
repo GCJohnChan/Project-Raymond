@@ -468,6 +468,10 @@ warning 6002: The table/view 'CCT.dbo.Student' does not have a primary key defin
           <Parameter Name="ID_NUM" Type="int" Mode="In" />
         </Function>
         <Function Name="UPDATE_ACT_INFO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UPDATE_OFFICE_HOURS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="VALUE" Type="varchar" Mode="In" />
+         </Function>
         <Function Name="UPDATE_PHONE_PRIVACY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="VALUE" Type="varchar" Mode="In" />
@@ -838,6 +842,10 @@ warning 6002: The table/view 'CCT.dbo.Student' does not have a primary key defin
           <FunctionImport Name="MEMBERSHIPS_PER_ACT_CDE_AUTHORIZED" ReturnType="Collection(Gordon360.MEMBERSHIPS_PER_ACT_CDE_AUTHORIZED_Result)">
             <Parameter Name="ACT_CDE" Mode="In" Type="String" />
             <Parameter Name="AUTHORIZED" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UPDATE_OFFICE_HOURS">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="VALUE" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_PHONE_PRIVACY">
             <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -1833,6 +1841,7 @@ warning 6002: The table/view 'CCT.dbo.Student' does not have a primary key defin
           <FunctionImportMapping FunctionImportName="CREATE_SOCIAL_LINKS" FunctionName="Gordon360.Store.CREATE_SOCIAL_LINKS" />
           <FunctionImportMapping FunctionImportName="UPDATE_PHONE_PRIVACY" FunctionName="Gordon360.Store.UPDATE_PHONE_PRIVACY" />
           <FunctionImportMapping FunctionImportName="UPDATE_SHOW_PIC" FunctionName="Gordon360.Store.UPDATE_SHOW_PIC" />
+          <FunctionImportMapping FunctionImportName="UPDATE_OFFICE_HOURS" FunctionName="Gordon360.Store.UPDATE_OFFICE_HOURS" />
           <EntitySetMapping Name="ACT_INFO">
             <EntityTypeMapping TypeName="Gordon360.ACT_INFO">
               <MappingFragment StoreEntitySet="ACT_INFO">

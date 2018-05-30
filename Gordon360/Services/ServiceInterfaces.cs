@@ -26,6 +26,7 @@ namespace Gordon360.Services
         void UpdateMobilePrivacy(string id, string value);
         void UpdateImagePrivacy(string id, string value);
         void UpdateProfileImage(string id, string path, string name);
+        void UpdateOfficeHours(string id, string value);
     }
 
     public interface IEventService

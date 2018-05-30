@@ -211,5 +211,26 @@ namespace Gordon360.Services
             context.Database.ExecuteSqlCommand("UPDATE_SHOW_PIC @ACCOUNT_ID, @VALUE", idParam, valueParam); //run stored procedure.
         }
 
+        /// <summary>
+        /// Update a faculty member's office hour string. Blatent copying of the above procudeure.
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <param name="value"></param>
+        public void UpdateOfficeHours(string id, string value)
+        {
+            var original = _unitOfWork.FacultyStaffRepository.FirstOrDefault(x => x.ID == id);
+
+            if (original == null)
+            {
+                throw new ResourceNotFoundException() { ExceptionMessage = "The account was not found." };
+            }
+
+            var accountID = original.ID;
+            var idParam = new SqlParameter("@ID", accountID);
+            var valueParam = new SqlParameter("@VALUE", value);
+            var context = new CCTEntities1();
+            context.Database.ExecuteSqlCommand("UPDATE_OFFICE_HOURS @ID, @VALUE", idParam, valueParam); //run stored procedure.
+        }
+
     }
 }

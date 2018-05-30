@@ -744,5 +744,35 @@ namespace Gordon360.Controllers.Api
 
             return Ok();
         }
+        /// <summary>
+        /// Update office hour string
+        /// </summary>
+        /// <param name="value">The new office_hour string</param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("office_hours/{value}")]
+        public IHttpActionResult UpdateOfficeHours(string value)
+        {
+            // Verify Input
+            if (!ModelState.IsValid)
+            {
+                string errors = "";
+                foreach (var modelstate in ModelState.Values)
+                {
+                    foreach (var error in modelstate.Errors)
+                    {
+                        errors += "|" + error.ErrorMessage + "|" + error.Exception;
+                    }
+
+                }
+                throw new BadInputException() { ExceptionMessage = errors };
+            }
+
+            var authenticatedUser = this.ActionContext.RequestContext.Principal as ClaimsPrincipal;
+            var id = authenticatedUser.Claims.FirstOrDefault(x => x.Type == "id").Value;
+            _profileService.UpdateOfficeHours(id, value);
+
+            return Ok();
+        }
     }
 }

@@ -183,6 +183,13 @@
             <param name="value">Y or N</param>
             <returns></returns>
         </member>
+        <member name="M:Gordon360.Controllers.Api.ProfilesController.UpdateOfficeHours(System.String)">
+            <summary>
+            Update office hour string
+            </summary>
+            <param name="value">The new office_hour string</param>
+            <returns></returns>
+        </member>
         <member name="M:Gordon360.Controllers.Api.ParticipationsController.Get">
             <summary>Get all the roles a person may have within an activity</summary>
             <returns>A list of all the roles and their coresponding acronyms</returns>
@@ -1051,6 +1058,13 @@
             </summary>
             <param name="id">id</param>
             <param name="value">Y or N</param>
+        </member>
+        <member name="M:Gordon360.Services.ProfileService.UpdateOfficeHours(System.String,System.String)">
+            <summary>
+            Update a faculty member's office hour string. Blatent copying of the above procudeure.
+            </summary>
+            <param name="id">id</param>
+            <param name="value"></param>
         </member>
         <member name="T:Gordon360.Services.JenzibarActivityService">
             <summary>
