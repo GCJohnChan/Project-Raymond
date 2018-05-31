@@ -218,19 +218,18 @@ namespace Gordon360.Services
         /// <param name="value"></param>
         public void UpdateOfficeHours(string id, string value)
         {
-            var original = _unitOfWork.FacultyStaffRepository.FirstOrDefault(x => x.ID == id);
+            var original = _unitOfWork.AccountRepository.FirstOrDefault(x => x.gordon_id == id);
 
             if (original == null)
             {
                 throw new ResourceNotFoundException() { ExceptionMessage = "The account was not found." };
             }
 
-            var accountID = original.ID;
-            var idParam = new SqlParameter("@ID", accountID);
+            var accountID = original.account_id;
+            var idParam = new SqlParameter("@ACCOUNT_ID", accountID);
             var valueParam = new SqlParameter("@VALUE", value);
             var context = new CCTEntities1();
-            context.Database.ExecuteSqlCommand("UPDATE_OFFICE_HOURS @ID, @VALUE", idParam, valueParam); //run stored procedure.
+            context.Database.ExecuteSqlCommand("UPDATE_OFFICE_HOURS @ACCOUNT_ID, @VALUE", idParam, valueParam); //run stored procedure.
         }
-
     }
 }

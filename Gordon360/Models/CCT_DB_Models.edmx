@@ -469,7 +469,7 @@ warning 6002: The table/view 'CCT.dbo.Student' does not have a primary key defin
         </Function>
         <Function Name="UPDATE_ACT_INFO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UPDATE_OFFICE_HOURS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="ACCOUNT_ID" Type="int" Mode="In" />
           <Parameter Name="VALUE" Type="varchar" Mode="In" />
          </Function>
         <Function Name="UPDATE_PHONE_PRIVACY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -844,7 +844,7 @@ warning 6002: The table/view 'CCT.dbo.Student' does not have a primary key defin
             <Parameter Name="AUTHORIZED" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_OFFICE_HOURS">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="ACCOUNT_ID" Mode="In" Type="Int32" />
             <Parameter Name="VALUE" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_PHONE_PRIVACY">
