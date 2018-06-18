@@ -750,8 +750,8 @@ namespace Gordon360.Controllers.Api
         /// <param name="value">The new office_hour string</param>
         /// <returns></returns>
         [HttpPut]
-        [Route("office_hours/{value}")]
-        public IHttpActionResult UpdateOfficeHours(string value)
+        [Route("office_hours/")]
+        public IHttpActionResult UpdateOfficeHours([FromBody] string value)
         {
             // Verify Input
             if (!ModelState.IsValid)
